@@ -113,6 +113,46 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap final {
+            get {
+                object obj = ResourceManager.GetObject("final", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap finallll {
+            get {
+                object obj = ResourceManager.GetObject("finallll", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap finallll1 {
+            get {
+                object obj = ResourceManager.GetObject("finallll1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap finallllwhight {
+            get {
+                object obj = ResourceManager.GetObject("finallllwhight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Girl {
             get {
                 object obj = ResourceManager.GetObject("Girl", resourceCulture);
@@ -153,6 +193,16 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap IMG_20240824_WA0086 {
+            get {
+                object obj = ResourceManager.GetObject("IMG-20240824-WA0086", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap noun_tic_tac_toe_1267357 {
             get {
                 object obj = ResourceManager.GetObject("noun-tic-tac-toe-1267357", resourceCulture);
@@ -163,9 +213,29 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap noun_tic_tkac_to4eee_1267357 {
+            get {
+                object obj = ResourceManager.GetObject("noun-tic-tkac-to4eee-1267357", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap noun_tic_tkac_toe_1267357 {
             get {
                 object obj = ResourceManager.GetObject("noun-tic-tkac-toe-1267357", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap noun_tic_tkac_toeee_1267357 {
+            get {
+                object obj = ResourceManager.GetObject("noun-tic-tkac-toeee-1267357", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
