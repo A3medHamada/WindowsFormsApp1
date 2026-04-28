@@ -49,6 +49,158 @@ namespace WindowsFormsApp1
             }
         }
 
+
+        int[,] GetBoard()
+        {
+            Button[] buttons = { button1, button2, button3, button4, button5, button6, button7, button8, button10 };
+            int[,] board = new int[3, 3];
+
+            for (int i = 0; i < 9; i++)
+            {
+                string tag = buttons[i].Tag.ToString();
+                int r = i / 3;
+                int c = i % 3;
+
+                if (tag == "10")      
+                    board[r, c] = 1;
+                else if (tag == "15") 
+                    board[r, c] = -1;
+                else
+                    board[r, c] = 0;  
+            }
+
+            return board;
+        }
+
+        int EvaluateBoard(int[,] board)
+        {
+          
+            for (int row = 0; row < 3; row++)
+            {
+                int sum = board[row, 0] + board[row, 1] + board[row, 2];
+                if (sum == 3) return -10;  
+                if (sum == -3) return 10;   
+            }
+
+          
+            for (int col = 0; col < 3; col++)
+            {
+                int sum = board[0, col] + board[1, col] + board[2, col];
+                if (sum == 3) return -10;
+                if (sum == -3) return 10;
+            }
+
+            
+            int diag1 = board[0, 0] + board[1, 1] + board[2, 2];
+            if (diag1 == 3) return -10;
+            if (diag1 == -3) return 10;
+
+            int diag2 = board[0, 2] + board[1, 1] + board[2, 0];
+            if (diag2 == 3) return -10;
+            if (diag2 == -3) return 10;
+
+            return 0; 
+        }
+
+        bool MovesLeft(int[,] board)
+        {
+            for (int i = 0; i < 3; i++)
+                for (int j = 0; j < 3; j++)
+                    if (board[i, j] == 0)
+                        return true;
+            return false;
+        }
+
+        int Minimax(int[,] board, bool isMaximizing)
+        {
+            int score = EvaluateBoard(board);
+
+            if (score == 10 || score == -10)
+                return score;
+
+            if (!MovesLeft(board))
+                return 0;
+
+            if (isMaximizing) 
+            {
+                int best = int.MinValue;
+
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (board[i, j] == 0)
+                        {
+                            board[i, j] = -1;
+                            int val = Minimax(board, false);
+                            board[i, j] = 0;
+                            if (val > best)
+                                best = val;
+                        }
+                    }
+                }
+              
+                return best;
+            }
+            else 
+            {
+                int best = int.MaxValue;
+
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        if (board[i, j] == 0)
+                        {
+                            board[i, j] = 1; 
+                            int val = Minimax(board, true);
+                            board[i, j] = 0;
+                            if (val < best)
+                                best = val;
+                        }
+                    }
+                }
+                return best;
+            }
+        }
+
+        Button ChooseBestMove()
+        {
+            int[,] board = GetBoard();
+            Button[] buttons = { button1, button2, button3, button4, button5, button6, button7, button8, button10 };
+
+            int bestVal = int.MinValue;
+            Button bestButton = null;
+
+            for (int i = 0; i < 9; i++)
+            {
+                int r = i / 3;
+                int c = i % 3;
+
+                if (board[r, c] == 0) 
+                {
+                    board[r, c] = -1; 
+
+                    int moveVal = Minimax(board, false);
+
+                    board[r, c] = 0; 
+
+                    if (moveVal > bestVal)
+                    {
+                        bestVal = moveVal;
+                        bestButton = buttons[i];
+                    }
+                }
+            }
+
+        
+            if (bestButton == null)
+                bestButton = chooserandombutton();
+
+            return bestButton;
+        }
+
+
         private void button6_Click(object sender, EventArgs e)
         {
             button6.BackgroundImage = Resources.cross_mark_1024x1024;
@@ -296,10 +448,7 @@ namespace WindowsFormsApp1
 
             if (label4.Text == "Computer")
             {
-                do
-                {
-                    xo = chooserandombutton();
-                } while (xo.Tag.ToString() == "10" || xo.Tag.ToString() == "15");
+                 xo = ChooseBestMove();
                 button_Click((object)xo, e);
             }
             else

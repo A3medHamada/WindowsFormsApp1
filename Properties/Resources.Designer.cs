@@ -183,16 +183,6 @@ namespace WindowsFormsApp1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap IMG_20221102_134859 {
-            get {
-                object obj = ResourceManager.GetObject("IMG_20221102_134859", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap IMG_20240824_WA0086 {
             get {
                 object obj = ResourceManager.GetObject("IMG-20240824-WA0086", resourceCulture);
